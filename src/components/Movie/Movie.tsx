@@ -1,14 +1,14 @@
+import { useCallback, useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 
-import MovieItem from '../ItemCard/ItemCard'
-import SearchBar from '../SearchBar/SearchBar'
-
 import { movieListState, currentPageState, filterText } from 'states/state'
 import { IMovie } from 'types/movie.d'
-import styles from './Movie.module.scss'
 import { getMovieApi } from 'services/movie'
-import { useCallback, useEffect, useState } from 'react'
+import styles from './Movie.module.scss'
+
+import MovieItem from '../ItemCard/ItemCard'
+import SearchBar from '../SearchBar/SearchBar'
 
 interface MovieProps{
   openModal:()=>void
@@ -26,7 +26,7 @@ const Movie = ({ openModal }: MovieProps) => {
   const getMovie = useCallback(async () => {
     setLoading(true)
     await getMovieApi({
-      apikey: '92e32667',
+      // apikey: '92e32667',
       s: filter,
       page:pages
     }).then((res) => {

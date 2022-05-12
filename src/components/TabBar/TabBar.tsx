@@ -17,6 +17,8 @@ const TabBar = () => {
       <button type='submit' value='MAIN' onClick={handleTabBarSwitch}>Movie</button>
       <button type='submit' value='MARK' onClick={handleTabBarSwitch}>BookMark</button>
     </div>
+
+    
   )
 }
 

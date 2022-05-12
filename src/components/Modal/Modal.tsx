@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { bookMarkList, pickMovie } from 'states/state'
-import { IMovie } from 'types/movie'
 
+import { bookMarkButtonState, bookMarkList, pickMovie } from 'states/state'
+import { IMovie } from 'types/movie'
 import styles from './Modal.module.scss'
+
 
 interface ModalProps{
   isShown: boolean
@@ -11,9 +12,9 @@ interface ModalProps{
 }
 
 const Modal = ({ isShown, closeModal }: ModalProps) => {
-
-  const [markList,setMark ]= useRecoilState<IMovie[]>(bookMarkList)
   const movie = useRecoilValue<IMovie>(pickMovie)
+  const [markList, setMark] = useRecoilState<IMovie[]>(bookMarkList)
+  const setButton = useRecoilValue(bookMarkButtonState)
 
   const handleAddMark = () => {
     setMark((prev) => { return [movie, ...prev] })
@@ -25,12 +26,11 @@ const Modal = ({ isShown, closeModal }: ModalProps) => {
     setMark(fetch)
     closeModal()
   }
-  const setButton = markList.filter((item) => item.imdbID === movie.imdbID)
 
   const modal: JSX.Element = (
     <main className={styles.modalBackground}>
       <aside>
-        {setButton.length===0 ? <button type='button' onClick={handleAddMark}>즐겨찾기</button> : <button type='button' onClick={handleDeleteMark}>즐겨찾기 취소</button>}
+        {setButton? <button type='button' onClick={handleAddMark}>즐겨찾기</button> : <button type='button' onClick={handleDeleteMark}>즐겨찾기 취소</button>}
         <button type='button' onClick={closeModal}>취소</button>
       </aside>
     </main>

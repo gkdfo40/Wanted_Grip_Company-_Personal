@@ -24,9 +24,7 @@ const MovieRoot = () => {
         </div>
       </div>
       <Modal isShown={isShown} closeModal={toggleModal} />
-    </>
-    
-    
+    </> 
   )
 }
 

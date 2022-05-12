@@ -1,5 +1,5 @@
-import { atom } from "recoil"
-
+import { atom, selector } from "recoil"
+import { recoilPersist } from "recoil-persist"
 import { IMovie } from "types/movie.d"
 
 const movieListState = atom<IMovie[]>({
@@ -7,14 +7,25 @@ const movieListState = atom<IMovie[]>({
   default:[]
 })
 
+const { persistAtom } = recoilPersist({
+  key: 'GripBookMark'
+})
+
 const bookMarkList = atom<IMovie[]>({
-  key: 'bookMarkList',
-  default: []
+  key: 'GripBookMark',
+  default: [],
+  effects_UNSTABLE: [persistAtom]
 })
 
 const pickMovie = atom<IMovie>({
   key: 'pickMovie',
-  default: undefined
+  default: {
+    Title: '',
+    Type: '',
+    Year: '',
+    imdbID: '',
+    Poster: ''
+  }
 })
 
 // 얘도 Grip에서 state로 바꿔줄수 있을 것 같고
@@ -35,11 +46,25 @@ const filterText = atom<string>({
   default:''
 })
 
+const bookMarkButtonState = selector<boolean>({
+  key: 'bookMarkButtonState',
+  get: ({ get }) => {
+    const booklist = get(bookMarkList)
+    const pickedMoive = get(pickMovie)
+
+    const result = booklist.filter(book => book.imdbID === pickedMoive.imdbID)
+    if (result.length === 0)
+      return true
+    return false
+  }
+})
+
 export {
   movieListState,
   currentTabState,
   currentPageState,
   pickMovie,
   bookMarkList,
-  filterText
+  filterText,
+  bookMarkButtonState
 }

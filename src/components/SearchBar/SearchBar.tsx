@@ -2,25 +2,25 @@ import { ChangeEvent, FormEvent} from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { SearchIcon } from 'assets/svgs'
-import { getMovieApi } from 'services/movie'
 import { movieListState, currentPageState, filterText } from 'states/state'
 import { IMovie } from 'types/movie.d'
+import { getMovieApi } from 'services/movie'
 import styles from './SearchBar.module.scss'
 
 const SearchBar = () => {
   
   const setMovie = useSetRecoilState<IMovie[]>(movieListState)
+
   const setPage = useSetRecoilState<number>(currentPageState)
   const [text, setText] = useRecoilState<string>(filterText)
   
   const handleOnChangeText = (event: ChangeEvent<HTMLInputElement>) => setText(event.currentTarget.value)
   const handleClearInputText = () => setText('')
 
-  // 커스텀 함수로 만들 수 있을거 같은데.... 다른 코드에서 반복된다면 고려해본다.
   const handleSubmitInputText = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     getMovieApi({
-      apikey: '92e32667',
+      // apikey: '92e32667',
       s: text,
       page:1
     }).then((res) => {

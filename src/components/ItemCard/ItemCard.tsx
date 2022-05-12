@@ -1,4 +1,5 @@
 import { useSetRecoilState } from 'recoil'
+
 import { pickMovie } from 'states/state'
 import { IMovie } from 'types/movie.d'
 import styles from './ItemCard.module.scss'
@@ -9,7 +10,9 @@ interface ItemProps{
 }
 
 const Item = ({ movie, openModal }: ItemProps) => {
+
   const target = useSetRecoilState<IMovie>(pickMovie)
+
   const handleClickItem = () => {
     target(movie)
     openModal()

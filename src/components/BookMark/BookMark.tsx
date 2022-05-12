@@ -1,18 +1,17 @@
-// import { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
+
+import styles from './BookMark.module.scss'
 
 import MovieItem from 'components/ItemCard/ItemCard'
-
 import { bookMarkList } from 'states/state'
-import styles from './BookMark.module.scss'
 
 interface BookMarkProps{
   openModal:()=>void
 }
 
-const BookMark = ({ openModal }: BookMarkProps) => {
+const BookMark = ({openModal }: BookMarkProps) => {
 
-  const [bookMarks,] = useRecoilState(bookMarkList)
+  const bookMarks = useRecoilValue(bookMarkList)
   
   return (
     <div className={styles.bookMarkContainer}>
