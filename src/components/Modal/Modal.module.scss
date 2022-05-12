@@ -1,0 +1,30 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.modalBackground{
+  position: fixed;
+  top:0px;
+  left:0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+
+  aside {
+    @include flexbox.flexbox(around,center);
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: white;
+
+    button{
+      &:hover{
+        color:red;
+      }
+    }
+  }
+}

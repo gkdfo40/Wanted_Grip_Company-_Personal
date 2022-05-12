@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  width: 360px;
+  height: 120px;
+  padding: 5px 0 0 0;
+  
+  div {
+    @include flexbox.flexbox(start, start);
+    flex-direction: column;
+    color:colors.$WHITE;
+  }
+}

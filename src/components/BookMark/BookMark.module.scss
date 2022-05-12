@@ -1,0 +1,45 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.bookMarkContainer {
+  position: relative;
+  width: 360px;
+  height: 720px;
+  //background-color: colors.$BLUE;
+
+  header {
+    position: absolute;
+    top:0px;
+    left: 0px;
+
+    .title {
+      @include flexbox.flexbox(center,center);
+      width: 360px;
+      height: 60px;
+      color: colors.$WHITE;
+      background-color: rgba(colors.$WHITE, 0.4);
+    }
+  }
+  
+
+  .emptyHead {
+    width: 360px;
+    height: 60px;
+  }
+
+  .movieItemList {
+    width: 360px;
+    height: 660px;
+    overflow-y: scroll;
+    padding: 5px 5px 0 5px;
+  }
+
+  .emptyFooter {
+    @include flexbox.flexbox(center,center);
+    width: 360px;
+    height: 80px;
+    color: colors.$WHITE;
+  }
+}

@@ -1,0 +1,44 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.mainContainer {
+  width: 360px;
+  height: 720px;
+  //background-color: colors.$BLUE;
+
+  .title {
+    @include flexbox.flexbox(center,center);
+    width: 100%;
+    height: 60px;
+  }
+
+  .movieItemList{
+    width: 360px;
+    height: 660px;
+    overflow-y: scroll;
+    padding: 5px 5px 0 5px;
+
+    .item {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      height: 120px;
+      padding: 5px 0 0 0;
+
+      div {
+        @include flexbox.flexbox(start, start);
+        flex-direction: column;
+        color:colors.$WHITE;
+      }
+    }
+    
+    .loader {
+       @include flexbox.flexbox(center,center);
+      width: 100%;
+      height: 80px;
+      color: colors.$WHITE;
+    }
+  }
+}

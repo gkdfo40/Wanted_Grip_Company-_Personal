@@ -1,0 +1,25 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.tabBarContainer {
+  @include flexbox.flexbox(around, center);
+  position: absolute;
+  top: 620px;
+  width: 350px;
+  height: 75px;
+  margin:20px;
+  border-radius: 10px 10px 40px 40px;
+  background-color: rgba(colors.$GRAYD, 0.3);
+
+  button {
+    font-size: large;
+    color: white;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      margin-bottom: 3px;
+    }
+  }
+}
