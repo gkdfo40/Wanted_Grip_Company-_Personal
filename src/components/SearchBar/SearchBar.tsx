@@ -20,7 +20,6 @@ const SearchBar = () => {
   const handleSubmitInputText = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     getMovieApi({
-      // apikey: '92e32667',
       s: text,
       page:1
     }).then((res) => {

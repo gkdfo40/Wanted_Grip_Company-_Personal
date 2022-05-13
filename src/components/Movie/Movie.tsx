@@ -26,7 +26,6 @@ const Movie = ({ openModal }: MovieProps) => {
   const getMovie = useCallback(async () => {
     setLoading(true)
     await getMovieApi({
-      // apikey: '92e32667',
       s: filter,
       page:pages
     }).then((res) => {
