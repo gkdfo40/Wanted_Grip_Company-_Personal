@@ -4,15 +4,51 @@
 @use '/src/styles/mixins/position';
 
 .item {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   width: 360px;
   height: 120px;
-  padding: 5px 0 0 0;
-  
-  div {
-    @include flexbox.flexbox(start, start);
+
+  .poster {
+    position: absolute;
+    left:5px;
+
+    img {
+      width: 90px;
+      min-width: 90px;
+      height: 110px;
+      border: 3px solid colors.$WHITE;
+      border-radius: 5px 5px 0 5px;
+    }
+  }
+
+  .content {
+    position: absolute;
+    left: 100px;
+    @include flexbox.flexbox(between, start);
     flex-direction: column;
+    width: 200px;
+    height: 110px;
     color:colors.$WHITE;
+    padding: 15px 0 1px 0;
+
+    .title {
+      display:-webkit-box;
+      word-wrap:break-word;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height:18px;
+      width: 220px;
+      height:54px;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+    .year,
+    .type {
+      color:rgba(colors.$WHITE, 0.6);
+    }
   }
 }

@@ -5,7 +5,6 @@ import { bookMarkButtonState, bookMarkList, pickMovie } from 'states/state'
 import { IMovie } from 'types/movie'
 import styles from './Modal.module.scss'
 
-
 interface ModalProps{
   isShown: boolean
   closeModal:()=>void

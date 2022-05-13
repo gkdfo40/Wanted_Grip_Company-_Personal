@@ -9,7 +9,7 @@ import BookMark from 'components/BookMark/BookMark'
 import TabBar from 'components/TabBar/TabBar'
 import Modal from 'components/Modal/Modal'
 
-const MovieRoot = () => {
+const Grip = () => {
   const tabState = useRecoilValue(currentTabState)
   const [isShown, toggleModal] = useToggle()
 
@@ -28,4 +28,4 @@ const MovieRoot = () => {
   )
 }
 
-export default MovieRoot
+export default Grip
