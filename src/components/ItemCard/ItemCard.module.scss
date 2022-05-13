@@ -9,6 +9,7 @@
   justify-content: flex-start;
   width: 360px;
   height: 120px;
+  cursor: default;
 
   .poster {
     position: absolute;
@@ -20,6 +21,10 @@
       height: 110px;
       border: 3px solid colors.$WHITE;
       border-radius: 5px 5px 0 5px;
+      
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
