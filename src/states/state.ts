@@ -1,20 +1,31 @@
-import { atom, selector } from "recoil"
-import { recoilPersist } from "recoil-persist"
-import { IMovie } from "types/movie.d"
+import { atom, AtomEffect, selector } from 'recoil'
+import { IMovie } from 'types/movie.d'
 
 const movieListState = atom<IMovie[]>({
   key: 'movieListState',
   default:[]
 })
 
-const { persistAtom } = recoilPersist({
-  key: 'GripBookMark'
-})
+const localStorageEffect: <T>(key: string) => AtomEffect<T> =
+  (key: string) =>
+    ({ setSelf, onSet }) => {
+      const savedValue = localStorage.getItem(key)
+      if (savedValue != null) {
+        setSelf(JSON.parse(savedValue))
+      }
+      onSet((newValue, _, isReset) => {
+        isReset
+          ? localStorage.removeItem(key)
+          : localStorage.setItem(key, JSON.stringify(newValue))
+      })
+    }
 
 const bookMarkList = atom<IMovie[]>({
   key: 'GripBookMark',
   default: [],
-  effects_UNSTABLE: [persistAtom]
+  effects_UNSTABLE: [
+    localStorageEffect<IMovie[]>('GripBookMark')
+  ]
 })
 
 const pickMovie = atom<IMovie>({
