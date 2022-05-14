@@ -28,19 +28,16 @@ const pickMovie = atom<IMovie>({
   }
 })
 
-// 얘도 Grip에서 state로 바꿔줄수 있을 것 같고
 const currentTabState = atom<boolean>({
   key: 'currentTabState',
   default: true
 })
 
-// 얘도 Grip에서 state로 바꿔줄 수 있을 것 같고 
 const currentPageState = atom<number>({
   key: 'CurrentPageState',
   default: 1
 })
 
-// 얘는 Grip에서 state로 바꿔줄수 있을 것 같고
 const filterText = atom<string>({
   key: 'filterText',
   default:''

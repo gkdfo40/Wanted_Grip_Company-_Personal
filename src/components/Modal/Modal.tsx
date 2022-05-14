@@ -29,7 +29,7 @@ const Modal = ({ isShown, closeModal }: ModalProps) => {
   const modal: JSX.Element = (
     <main className={styles.modalBackground}>
       <aside>
-        {setButton? <button type='button' onClick={handleAddMark}>즐겨찾기</button> : <button type='button' onClick={handleDeleteMark}>즐겨찾기 취소</button>}
+        <button type='button' onClick={setButton ? handleAddMark : handleDeleteMark}>{setButton ? '즐겨찾기' : '즐겨찾기 취소'}</button>
         <button type='button' onClick={closeModal}>취소</button>
       </aside>
     </main>
