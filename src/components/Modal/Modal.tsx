@@ -25,8 +25,6 @@ const Modal = ({ isShown, closeModal }: ModalProps) => {
     setMark(fetch)
     closeModal()
   }
-  // ddddddddddddddddddddddddd
-  const newdata="ddd"
 
   const modal: JSX.Element = (
     <main className={styles.modalBackground}>
