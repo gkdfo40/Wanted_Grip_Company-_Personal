@@ -64,9 +64,6 @@ const BookMark = ({openModal }: BookMarkProps) => {
       draggedTo:-1
     })
   }
-
-  const onDragEnter = () => {
-  }
   const onDragLeave = () => {
     setDragAndDrop({
       ...dragAndDrop,
@@ -96,7 +93,6 @@ const BookMark = ({openModal }: BookMarkProps) => {
                 onDragOver={onDragOver}
                 onDrop={onDrop}
                 onDragLeave={onDragLeave}
-                onDragEnter={onDragEnter}
                 onDragEnd={onDragEnd}
               >
                 <MovieItem
