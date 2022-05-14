@@ -21,14 +21,16 @@ const Item = ({ movie, openModal }: ItemProps) => {
 
   return (
     <article className={styles.item} onDoubleClick={handleClickItem}>
-      <div className={styles.poster}>
-        <img src={movie.Poster === 'N/A' ? NoImage : movie.Poster} alt='Poster' draggable='false' />
-      </div>
-      <div className={styles.content}>
-        <p className={styles.title}>{movie.Title}</p>
-        <div>
-          <p className={styles.year}>{movie.Year.slice(0,4)}</p>
-          <p className={styles.type}>{movie.Type.toUpperCase()}</p>
+      <div>
+        <div className={styles.poster}>
+          <img src={movie.Poster === 'N/A' ? NoImage : movie.Poster} alt='Poster' draggable='false' />
+        </div>
+        <div className={styles.content}>
+          <p className={styles.title}>{movie.Title}</p>
+          <div>
+            <p className={styles.year}>{movie.Year.slice(0, 4)}</p>
+            <p className={styles.type}>{movie.Type.toUpperCase()}</p>
+          </div>
         </div>
       </div>
     </article>  
