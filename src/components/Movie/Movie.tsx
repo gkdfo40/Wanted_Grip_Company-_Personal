@@ -3,7 +3,6 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { useInView } from 'react-intersection-observer'
 
 import { movieListState, currentPageState, filterText } from 'states/state'
-import { IMovie } from 'types/movie.d'
 import { getMovieApi } from 'services/movie'
 import styles from './Movie.module.scss'
 
@@ -16,8 +15,8 @@ interface MovieProps{
 
 const Movie = ({ openModal }: MovieProps) => {
 
-  const [movies, setMovies] = useRecoilState<IMovie[]>(movieListState)
-  const [pages, setPage] = useRecoilState<number>(currentPageState)
+  const [movies, setMovies] = useRecoilState(movieListState)
+  const [pages, setPage] = useRecoilState(currentPageState)
   const filter = useRecoilValue(filterText)
   const [Liref, inView] = useInView()
 

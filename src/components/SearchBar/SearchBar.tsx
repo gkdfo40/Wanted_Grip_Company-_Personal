@@ -3,16 +3,15 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { SearchIcon } from 'assets/svgs'
 import { movieListState, currentPageState, filterText } from 'states/state'
-import { IMovie } from 'types/movie.d'
 import { getMovieApi } from 'services/movie'
 import styles from './SearchBar.module.scss'
 
 const SearchBar = () => {
   
-  const setMovie = useSetRecoilState<IMovie[]>(movieListState)
+  const setMovie = useSetRecoilState(movieListState)
 
-  const setPage = useSetRecoilState<number>(currentPageState)
-  const [text, setText] = useRecoilState<string>(filterText)
+  const setPage = useSetRecoilState(currentPageState)
+  const [text, setText] = useRecoilState(filterText)
   
   const handleOnChangeText = (event: ChangeEvent<HTMLInputElement>) => setText(event.currentTarget.value)
   const handleClearInputText = () => setText('')

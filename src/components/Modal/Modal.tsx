@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { bookMarkButtonState, bookMarkList, pickMovie } from 'states/state'
-import { IMovie } from 'types/movie'
 import styles from './Modal.module.scss'
 
 interface ModalProps{
@@ -11,8 +10,8 @@ interface ModalProps{
 }
 
 const Modal = ({ isShown, closeModal }: ModalProps) => {
-  const movie = useRecoilValue<IMovie>(pickMovie)
-  const [markList, setMark] = useRecoilState<IMovie[]>(bookMarkList)
+  const movie = useRecoilValue(pickMovie)
+  const [markList, setMark] = useRecoilState(bookMarkList)
   const setButton = useRecoilValue(bookMarkButtonState)
 
   const handleAddMark = () => {

@@ -12,7 +12,7 @@ interface ItemProps{
 
 const Item = ({ movie, openModal }: ItemProps) => {
 
-  const target = useSetRecoilState<IMovie>(pickMovie)
+  const target = useSetRecoilState(pickMovie)
   
   const handleClickItem = () => {
     target(movie)
