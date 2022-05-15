@@ -36,6 +36,7 @@
 검색한 영화는 스크롤을 통해 다음 페이지를 검색합니다.
 
 + 즐겨찾기한 영화는 localStorage에 저장하여, 다음에 접속 했을 때, 즐겨찾기 조회가 되고 Drag&Drop을 통해 우선순위 변경이 가능합니다.
+
 ![screenshot1](https://user-images.githubusercontent.com/57490711/168457492-eafe7cc1-ec4e-4be2-8b13-ed19c8695c54.PNG)
 ![screenshot2](https://user-images.githubusercontent.com/57490711/168457496-d09d0725-fb71-4c9c-b3dd-81a72344c48a.PNG)
 
