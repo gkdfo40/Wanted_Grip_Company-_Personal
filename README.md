@@ -1,5 +1,6 @@
 # 2022 _ Grip Company 개인 과제
 
++ link: https://heroic-babka-3102eb.netlify.app/
 + 프로젝트 기간: **2022/05/10 ~ 2022/05/15**
 
 ```
